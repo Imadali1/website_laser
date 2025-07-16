@@ -1,29 +1,160 @@
-form {
+/* Nouveau style.css inspiré de JustLaser.com pour LaserMachineMar */
+
+/* RESET Général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+header {
+  background: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  font-size: 24px;
+  color: #d60000;
+  font-weight: 700;
+  float: left;
+}
+
+nav ul {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  margin-top: 30px;
+  gap: 25px;
+  float: right;
 }
 
-form input, form textarea {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+nav ul li a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: color 0.3s ease;
 }
 
-form button {
-  background-color: #d60000;
+nav ul li a:hover {
+  color: #d60000;
+}
+
+/* HERO */
+.hero {
+  background: url('https://www.justlaser.com/fileadmin/_processed_/2/f/csm_justlaser-laser-cutter-wood.jpg') no-repeat center center/cover;
   color: white;
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s;
+  text-align: center;
+  padding: 160px 0;
+  position: relative;
 }
 
-form button:hover {
-  background-color: #a40000;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: #d60000;
+  color: white;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #a40000;
+  transform: translateY(-2px);
+}
+
+/* SECTION ABOUT */
+.about {
+  padding: 80px 0;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 36px;
+  color: #002244;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about p {
+  font-size: 18px;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+footer {
+  background: #002244;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    float: none;
+    margin-top: 10px;
+  }
+  .logo {
+    float: none;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .hero h2 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
 }
