@@ -27,11 +27,7 @@
       <h2>Contactez-nous</h2>
       <p>Notre équipe commerciale et technique est à votre disposition pour étudier vos projets et vous proposer des solutions laser adaptées à vos besoins industriels. Demandez votre devis personnalisé ou prenez rendez-vous pour une démonstration.</p>
 
-      <!-- Formulaire Principal (FormSubmit - pour serveur web) -->
-      <form action="https://formsubmit.co/imadalhannawi@gmail.com" method="POST" class="contact-form" id="webForm">
-        <input type="hidden" name="_next" value="merci.html">
-        <input type="hidden" name="_subject" value="Nouvelle demande LaserMachineMar">
-        
+      <form class="contact-form" name="contact" method="POST" data-netlify="true">
         <h3>Demande d'Information</h3>
         <p class="form-subtitle">Complétez ce formulaire pour recevoir une réponse personnalisée dans les plus brefs délais</p>
         
@@ -115,12 +111,14 @@
           </select>
         </div>
 
-        <button type="submit" class="btn contact-btn">Envoyer la demande</button>
-        
-        <!-- Bouton de secours pour test local -->
-        <button type="button" onclick="sendByEmail()" class="btn" style="background: #28a745; margin-top: 15px;">
-          📧 Alternative : Envoyer par Email (Test Local)
+        <!-- Bouton principal qui marche partout -->
+        <button type="button" onclick="sendContactEmail()" class="btn contact-btn">
+          📧 Envoyer la demande
         </button>
+        
+        <p style="font-size: 14px; color: #666; margin-top: 15px; text-align: center;">
+          Le bouton ouvrira votre client email avec toutes les informations pré-remplies
+        </p>
       </form>
 
       <div class="contact-info">
@@ -138,7 +136,7 @@
           <h4>Contact Commercial</h4>
           <p><strong>Ventes :</strong> À venir<br>
           <strong>Support :</strong> À venir<br>
-          <strong>Email :</strong> contact@lasermachinemar.fr<br>
+          <strong>Email :</strong> imadalhannawi@gmail.com<br>
           <strong>Horaires :</strong> Lun-Ven 8h30-18h</p>
         </div>
 
@@ -170,47 +168,87 @@
   </footer>
 
   <script>
-    function sendByEmail() {
-      // Collecte des données du formulaire
-      const prenom = document.getElementById('prenom').value;
-      const nom = document.getElementById('nom').value;
-      const email = document.getElementById('email').value;
-      const telephone = document.getElementById('telephone').value;
-      const entreprise = document.getElementById('entreprise').value;
-      const fonction = document.getElementById('fonction').value;
-      const secteur = document.getElementById('secteur').value;
+    function sendContactEmail() {
+      // Validation des champs obligatoires
+      const prenom = document.getElementById('prenom').value.trim();
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const entreprise = document.getElementById('entreprise').value.trim();
       const type_demande = document.getElementById('type_demande').value;
-      const message = document.getElementById('message').value;
+      const message = document.getElementById('message').value.trim();
+      
+      // Vérification des champs obligatoires
+      if (!prenom || !nom || !email || !entreprise || !type_demande || !message) {
+        alert('Veuillez remplir tous les champs obligatoires (marqués avec *)');
+        return;
+      }
+      
+      // Collecte de tous les données
+      const telephone = document.getElementById('telephone').value.trim();
+      const fonction = document.getElementById('fonction').value.trim();
+      const secteur = document.getElementById('secteur').value;
       const budget = document.getElementById('budget').value;
       
-      // Construction du contenu email
-      const subject = 'Nouvelle demande LaserMachineMar';
-      const body = `Nouvelle demande de contact :
+      // Date et heure actuelles
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('fr-FR');
+      const timeStr = now.toLocaleTimeString('fr-FR');
+      
+      // Construction du contenu email professionnel
+      const subject = '🔧 Nouvelle demande LaserMachineMar - ' + type_demande;
+      const body = `NOUVELLE DEMANDE DE CONTACT - LaserMachineMar
+      
+═══════════════════════════════════════
+📋 INFORMATIONS PERSONNELLES
+═══════════════════════════════════════
+👤 Nom complet : ${prenom} ${nom}
+📧 Email : ${email}
+📞 Téléphone : ${telephone || 'Non renseigné'}
 
-INFORMATIONS PERSONNELLES :
-- Nom : ${nom}
-- Prénom : ${prenom}
-- Email : ${email}
-- Téléphone : ${telephone}
+═══════════════════════════════════════
+🏢 INFORMATIONS ENTREPRISE
+═══════════════════════════════════════
+🏭 Entreprise : ${entreprise}
+💼 Fonction : ${fonction || 'Non renseignée'}
+🎯 Secteur : ${secteur || 'Non renseigné'}
 
-INFORMATIONS ENTREPRISE :
-- Entreprise : ${entreprise}
-- Fonction : ${fonction}
-- Secteur : ${secteur}
+═══════════════════════════════════════
+📝 DÉTAILS DE LA DEMANDE
+═══════════════════════════════════════
+🔥 Type de demande : ${type_demande}
+💰 Budget envisagé : ${budget || 'Non renseigné'}
 
-DEMANDE :
-- Type : ${type_demande}
-- Budget : ${budget}
-
-MESSAGE :
+📋 Description du projet :
 ${message}
 
+═══════════════════════════════════════
+📅 INFORMATIONS SYSTÈME
+═══════════════════════════════════════
+📅 Date : ${dateStr}
+⏰ Heure : ${timeStr}
+🌐 Source : Site Web LaserMachineMar
+
+═══════════════════════════════════════
+
+⚡ ACTIONS À PRENDRE :
+1. Répondre dans les 24h
+2. Qualifier le besoin 
+3. Proposer un rendez-vous si pertinent
+4. Préparer une proposition commerciale
+
 ---
-Envoyé depuis le site LaserMachineMar`;
+Email généré automatiquement depuis le site LaserMachineMar`;
       
-      // Ouvre le client email
+      // Création du lien mailto
       const mailtoLink = `mailto:imadalhannawi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Ouverture du client email
       window.location.href = mailtoLink;
+      
+      // Message de confirmation
+      setTimeout(() => {
+        alert('✅ Votre client email va s\'ouvrir avec toutes les informations pré-remplies. Envoyez simplement l\'email !');
+      }, 500);
     }
   </script>
 </body>
