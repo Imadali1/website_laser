@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Ma Société Laser</title>
+  <title>Contact - LaserMachineMar</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Ma Société Laser</h1>
+      <h1 class="logo">LaserMachineMar</h1>
       <nav>
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -24,21 +25,141 @@
   <section class="about">
     <div class="container">
       <h2>Contactez-nous</h2>
-      <p>Remplissez le formulaire ci-dessous, et nous vous répondrons rapidement.</p>
+      <p>Notre équipe commerciale et technique est à votre disposition pour étudier vos projets et vous proposer des solutions laser adaptées à vos besoins industriels. Demandez votre devis personnalisé ou prenez rendez-vous pour une démonstration.</p>
 
-      <form action="https://formsubmit.co/imadalhannawi@gmail.com" method="POST">
+      <form action="https://formsubmit.co/imadalhannawi@gmail.com" method="POST" class="contact-form">
         <input type="hidden" name="_next" value="merci.html">
-        <input type="text" name="nom" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre adresse email" required>
-        <textarea name="message" placeholder="Votre message..." required></textarea>
-        <button type="submit">Envoyer</button>
+        <input type="hidden" name="_subject" value="Nouvelle demande LaserMachineMar">
+        
+        <h3>Demande d'Information</h3>
+        <p class="form-subtitle">Complétez ce formulaire pour recevoir une réponse personnalisée dans les plus brefs délais</p>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" required>
+          </div>
+          <div class="form-group">
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email professionnel *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="entreprise">Entreprise *</label>
+            <input type="text" id="entreprise" name="entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="fonction">Fonction</label>
+            <input type="text" id="fonction" name="fonction" placeholder="Directeur technique, Responsable production...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="secteur">Secteur d'activité</label>
+          <select id="secteur" name="secteur">
+            <option value="">Sélectionnez votre secteur</option>
+            <option value="aeronautique">Aéronautique & Spatial</option>
+            <option value="automobile">Automobile</option>
+            <option value="electronique">Électronique & Composants</option>
+            <option value="metallurgie">Métallurgie & Sidérurgie</option>
+            <option value="medical">Médical & Dispositifs médicaux</option>
+            <option value="energie">Énergie & Environnement</option>
+            <option value="bijouterie">Bijouterie & Horlogerie</option>
+            <option value="textile">Textile & Cuir</option>
+            <option value="packaging">Packaging & Emballage</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="type_demande">Type de demande *</label>
+          <select id="type_demande" name="type_demande" required>
+            <option value="">Choisissez le type de demande</option>
+            <option value="devis">Demande de devis</option>
+            <option value="demonstration">Demande de démonstration</option>
+            <option value="information">Information produit</option>
+            <option value="maintenance">Support & Maintenance</option>
+            <option value="formation">Formation</option>
+            <option value="partenariat">Partenariat commercial</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Décrivez votre projet *</label>
+          <textarea id="message" name="message" required placeholder="Décrivez vos besoins : matériaux à traiter, volumes de production, contraintes techniques, délais..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget envisagé</label>
+          <select id="budget" name="budget">
+            <option value="">Fourchette budgétaire (optionnel)</option>
+            <option value="moins_50k">Moins de 50 000 €</option>
+            <option value="50k_100k">50 000 € - 100 000 €</option>
+            <option value="100k_250k">100 000 € - 250 000 €</option>
+            <option value="250k_500k">250 000 € - 500 000 €</option>
+            <option value="plus_500k">Plus de 500 000 €</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn contact-btn">Envoyer la demande</button>
       </form>
+
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <h4>Siège Social</h4>
+          <p>LaserMachineMar<br>
+          Zone Industrielle<br>
+          France<br>
+          GPS : Coordonnées disponibles sur demande</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <h4>Contact Commercial</h4>
+          <p><strong>Ventes :</strong> À venir<br>
+          <strong>Support :</strong> À venir<br>
+          <strong>Email :</strong> contact@lasermachinemar.fr<br>
+          <strong>Horaires :</strong> Lun-Ven 8h30-18h</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">🎯</div>
+          <h4>Zone de Couverture</h4>
+          <p>France métropolitaine<br>
+          Interventions sur site<br>
+          Export international<br>
+          Réseau de partenaires certifiés</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">⚡</div>
+          <h4>Support Technique</h4>
+          <p>Assistance téléphonique<br>
+          Diagnostic à distance<br>
+          Intervention sur site<br>
+          Maintenance préventive</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Ma Société Laser. Tous droits réservés.</p>
+      <p>&copy; 2025 LaserMachineMar. Tous droits réservés.</p>
     </div>
   </footer>
 </body>

@@ -1,6 +1,9 @@
-/* Nouveau style.css inspiré de JustLaser.com pour LaserMachineMar */
+/* 🔧 Professional LaserMachineMar Website */
 
-/* RESET Général */
+/* Import professional fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* RESET & Base */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +11,11 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background-color: #ffffff;
+  color: #1a202c;
+  min-height: 100vh;
 }
 
 .container {
@@ -20,59 +24,86 @@ body {
   padding: 0 20px;
 }
 
-/* HEADER */
+/* HEADER - Professional Navigation */
 header {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
   padding: 20px 0;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
-  z-index: 999;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
 .logo {
-  font-size: 24px;
-  color: #d60000;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
   font-weight: 700;
+  color: #1a365d;
   float: left;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #2b77e6;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 35px;
   float: right;
+  margin-top: 8px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #002244;
+  color: #4a5568;
   font-weight: 500;
-  text-transform: uppercase;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #d60000;
-}
-
-/* HERO */
-.hero {
-  background: url('https://www.justlaser.com/fileadmin/_processed_/2/f/csm_justlaser-laser-cutter-wood.jpg') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  padding: 160px 0;
+  font-size: 16px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
   position: relative;
 }
 
-.hero::before {
-  content: "";
+nav ul li a::after {
+  content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2b77e6, #1e40af);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #2b77e6;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Clear floats */
+header .container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* HERO - Professional Landing Section */
+.hero {
+  background: linear-gradient(135deg, rgba(43, 119, 230, 0.95) 0%, rgba(30, 64, 175, 0.95) 100%), 
+              url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+  color: white;
+  text-align: center;
+  padding: 140px 0;
+  position: relative;
 }
 
 .hero .container {
@@ -81,80 +112,345 @@ nav ul li a:hover {
 }
 
 .hero h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
   font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: 24px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
 }
 
 .btn {
-  background: #d60000;
+  background: linear-gradient(135deg, #2b77e6 0%, #1e40af 100%);
   color: white;
-  padding: 14px 32px;
+  padding: 18px 40px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  font-size: 15px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 18px;
   display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(43, 119, 230, 0.3);
 }
 
 .btn:hover {
-  background: #a40000;
   transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(43, 119, 230, 0.4);
+  background: linear-gradient(135deg, #1e40af 0%, #2b77e6 100%);
 }
 
-/* SECTION ABOUT */
+/* ABOUT SECTION - Professional Info Section */
 .about {
-  padding: 80px 0;
-  background: #f9f9f9;
+  padding: 100px 0;
+  background-color: #f8fafc;
+}
+
+.about .container {
   text-align: center;
 }
 
 .about h2 {
-  font-size: 36px;
-  color: #002244;
-  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
   font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 30px;
 }
 
 .about p {
-  font-size: 18px;
-  color: #444;
-  max-width: 800px;
-  margin: 0 auto;
+  font-size: 20px;
+  color: #4a5568;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #2b77e6;
 }
 
-/* FOOTER */
+.about ul {
+  text-align: left;
+  max-width: 800px;
+  margin: 50px auto;
+  list-style: none;
+  display: grid;
+  gap: 25px;
+}
+
+.about ul li {
+  padding: 25px 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid #e2e8f0;
+  position: relative;
+}
+
+.about ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-left-color: #2b77e6;
+}
+
+.about ul li strong {
+  color: #1a365d;
+  font-weight: 600;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* CONTACT FORM - Professional Business Form */
+.contact-form {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 50px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #1a365d;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-form .form-subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 16px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: #2b77e6;
+  box-shadow: 0 0 0 3px rgba(43, 119, 230, 0.1);
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-btn {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: 600;
+}
+
+/* CONTACT INFO - Professional Information Display */
+.contact-info {
+  max-width: 800px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.contact-card {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid #2b77e6;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #2b77e6;
+}
+
+.contact-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #1a365d;
+  margin-bottom: 15px;
+}
+
+.contact-card p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* SERVICES/PRODUCTS Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.service-card-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.service-card-content {
+  padding: 30px;
+}
+
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #1a365d;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card .btn {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* FOOTER - Professional Footer */
 footer {
-  background: #002244;
+  background: #1a365d;
   color: white;
   text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
+  padding: 50px 0;
+  margin-top: 100px;
 }
 
-/* Responsive */
+footer p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE - Professional Mobile Design */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
     align-items: center;
     float: none;
-    margin-top: 10px;
+    margin-top: 20px;
+    gap: 15px;
   }
+  
   .logo {
     float: none;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 28px;
   }
+  
   .hero h2 {
-    font-size: 32px;
+    font-size: 42px;
   }
+  
   .hero p {
-    font-size: 16px;
+    font-size: 20px;
+  }
+  
+  .about h2 {
+    font-size: 36px;
+  }
+  
+  .about p {
+    padding: 25px;
+  }
+  
+  .contact-form {
+    margin: 30px auto;
+    padding: 30px 25px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+    margin: 30px auto;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
