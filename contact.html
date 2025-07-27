@@ -1,86 +1,126 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - LaserMachineMar</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    .contact-form {
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 50px;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    .btn {
-      background-color: #2b77e6;
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
     #confirmation-message {
       display: none;
-      margin-top: 20px;
+      margin-top: 30px;
       color: green;
       font-weight: bold;
       font-size: 18px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <section class="contact-form">
-    <h2>Contactez-nous</h2>
-    <p>Veuillez remplir le formulaire ci-dessous :</p>
+  <section class="about">
+    <div class="container">
+      <h2>Contactez-nous</h2>
+      <p>Notre équipe est à votre disposition pour étudier vos projets.</p>
 
-    <form id="webForm">
-      <div class="form-group">
-        <label for="prenom">Prénom *</label>
-        <input type="text" id="prenom" name="prenom" required>
-      </div>
+      <form class="contact-form" id="webForm">
+        <h3>Demande d'information</h3>
+        <p class="form-subtitle">Complétez ce formulaire pour recevoir une réponse personnalisée.</p>
 
-      <div class="form-group">
-        <label for="nom">Nom *</label>
-        <input type="text" id="nom" name="nom" required>
-      </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" required>
+          </div>
+          <div class="form-group">
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" required>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email professionnel *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone">
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="message">Votre message *</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="entreprise">Entreprise *</label>
+            <input type="text" id="entreprise" name="entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="fonction">Fonction</label>
+            <input type="text" id="fonction" name="fonction" placeholder="Directeur technique, Responsable production...">
+          </div>
+        </div>
 
-      <button type="submit" class="btn">Envoyer la demande</button>
+        <div class="form-group">
+          <label for="secteur">Secteur d'activité</label>
+          <select id="secteur" name="secteur">
+            <option value="">Sélectionnez votre secteur</option>
+            <option value="aeronautique">Aéronautique & Spatial</option>
+            <option value="automobile">Automobile</option>
+            <option value="electronique">Électronique & Composants</option>
+            <option value="metallurgie">Métallurgie & Sidérurgie</option>
+            <option value="medical">Médical & Dispositifs médicaux</option>
+            <option value="energie">Énergie & Environnement</option>
+            <option value="bijouterie">Bijouterie & Horlogerie</option>
+            <option value="textile">Textile & Cuir</option>
+            <option value="packaging">Packaging & Emballage</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
 
-      <div id="confirmation-message">
-        ✅ Merci pour votre message, nous vous répondrons rapidement !
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="type_demande">Type de demande *</label>
+          <select id="type_demande" name="type_demande" required>
+            <option value="">Choisissez le type de demande</option>
+            <option value="devis">Demande de devis</option>
+            <option value="demonstration">Demande de démonstration</option>
+            <option value="information">Information produit</option>
+            <option value="maintenance">Support & Maintenance</option>
+            <option value="formation">Formation</option>
+            <option value="partenariat">Partenariat commercial</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Décrivez votre projet *</label>
+          <textarea id="message" name="message" required placeholder="Décrivez vos besoins : matériaux à traiter, volumes de production, contraintes techniques, délais..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget envisagé</label>
+          <select id="budget" name="budget">
+            <option value="">Fourchette budgétaire (optionnel)</option>
+            <option value="moins_50k">Moins de 50 000 €</option>
+            <option value="50k_100k">50 000 € - 100 000 €</option>
+            <option value="100k_250k">100 000 € - 250 000 €</option>
+            <option value="250k_500k">250 000 € - 500 000 €</option>
+            <option value="plus_500k">Plus de 500 000 €</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn contact-btn">Envoyer la demande</button>
+
+        <div id="confirmation-message">
+          ✅ Merci pour votre message, nous vous répondrons rapidement !
+        </div>
+      </form>
+    </div>
   </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 LaserMachineMar. Tous droits réservés.</p>
+    </div>
+  </footer>
 
   <script>
     const form = document.getElementById("webForm");
@@ -88,7 +128,7 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault(); // empêche l'envoi réel
-      confirmation.style.display = "block"; // montre le message
+      confirmation.style.display = "block"; // affiche le message
       form.reset(); // vide le formulaire
     });
   </script>
