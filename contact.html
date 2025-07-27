@@ -27,9 +27,9 @@
       <h2>Contactez-nous</h2>
       <p>Notre équipe commerciale et technique est à votre disposition pour étudier vos projets et vous proposer des solutions laser adaptées à vos besoins industriels. Demandez votre devis personnalisé ou prenez rendez-vous pour une démonstration.</p>
 
-      <form class="contact-form" name="contact" method="POST" data-netlify="true">
+      <div class="contact-form">
         <h3>Demande d'Information</h3>
-        <p class="form-subtitle">Complétez ce formulaire pour recevoir une réponse personnalisée dans les plus brefs délais</p>
+        <p class="form-subtitle">Complétez ce formulaire pour nous contacter rapidement</p>
         
         <div class="form-row">
           <div class="form-group">
@@ -111,15 +111,23 @@
           </select>
         </div>
 
-        <!-- Bouton principal qui marche partout -->
-        <button type="button" onclick="sendContactEmail()" class="btn contact-btn">
-          📧 Envoyer la demande
+        <!-- Bouton simple qui marche toujours -->
+        <a href="mailto:imadalhannawi@gmail.com?subject=Demande LaserMachineMar&body=Bonjour,%0D%0A%0D%0AJe souhaite obtenir des informations sur vos solutions laser.%0D%0A%0D%0AMes coordonnées :%0D%0ANom : %0D%0AEntreprise : %0D%0AEmail : %0D%0ATéléphone : %0D%0A%0D%0AMon besoin :%0D%0A%0D%0A%0D%0ACordialement" 
+           class="btn contact-btn" 
+           style="text-decoration: none; display: inline-block; text-align: center;">
+          📧 Nous contacter par email
+        </a>
+        
+        <!-- Bouton avec données du formulaire -->
+        <button type="button" onclick="envoyerEmail()" class="btn" style="background: #28a745; margin-top: 15px;">
+          📋 Envoyer avec les données du formulaire
         </button>
         
         <p style="font-size: 14px; color: #666; margin-top: 15px; text-align: center;">
-          Le bouton ouvrira votre client email avec toutes les informations pré-remplies
+          <strong>📧 Email direct :</strong> 
+          <a href="mailto:imadalhannawi@gmail.com" style="color: #2b77e6;">imadalhannawi@gmail.com</a>
         </p>
-      </form>
+      </div>
 
       <div class="contact-info">
         <div class="contact-card">
@@ -168,87 +176,38 @@
   </footer>
 
   <script>
-    function sendContactEmail() {
-      // Validation des champs obligatoires
-      const prenom = document.getElementById('prenom').value.trim();
-      const nom = document.getElementById('nom').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const entreprise = document.getElementById('entreprise').value.trim();
-      const type_demande = document.getElementById('type_demande').value;
-      const message = document.getElementById('message').value.trim();
+    function envoyerEmail() {
+      // Récupération simple des données
+      var nom = document.getElementById('nom').value || '';
+      var prenom = document.getElementById('prenom').value || '';
+      var email = document.getElementById('email').value || '';
+      var telephone = document.getElementById('telephone').value || '';
+      var entreprise = document.getElementById('entreprise').value || '';
+      var fonction = document.getElementById('fonction').value || '';
+      var secteur = document.getElementById('secteur').value || '';
+      var type_demande = document.getElementById('type_demande').value || '';
+      var message = document.getElementById('message').value || '';
+      var budget = document.getElementById('budget').value || '';
       
-      // Vérification des champs obligatoires
-      if (!prenom || !nom || !email || !entreprise || !type_demande || !message) {
-        alert('Veuillez remplir tous les champs obligatoires (marqués avec *)');
-        return;
-      }
+      // Construction simple du message
+      var sujet = 'Demande LaserMachineMar - ' + type_demande;
+      var corps = 'Nouvelle demande de contact :\n\n';
+      corps += 'Nom: ' + prenom + ' ' + nom + '\n';
+      corps += 'Email: ' + email + '\n';
+      corps += 'Téléphone: ' + telephone + '\n';
+      corps += 'Entreprise: ' + entreprise + '\n';
+      corps += 'Fonction: ' + fonction + '\n';
+      corps += 'Secteur: ' + secteur + '\n';
+      corps += 'Type de demande: ' + type_demande + '\n';
+      corps += 'Budget: ' + budget + '\n\n';
+      corps += 'Message:\n' + message + '\n\n';
+      corps += '---\nEnvoyé depuis le site LaserMachineMar';
       
-      // Collecte de tous les données
-      const telephone = document.getElementById('telephone').value.trim();
-      const fonction = document.getElementById('fonction').value.trim();
-      const secteur = document.getElementById('secteur').value;
-      const budget = document.getElementById('budget').value;
+      // Création du lien mailto simple
+      var lien = 'mailto:imadalhannawi@gmail.com?subject=' + encodeURIComponent(sujet) + '&body=' + encodeURIComponent(corps);
       
-      // Date et heure actuelles
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('fr-FR');
-      const timeStr = now.toLocaleTimeString('fr-FR');
-      
-      // Construction du contenu email professionnel
-      const subject = '🔧 Nouvelle demande LaserMachineMar - ' + type_demande;
-      const body = `NOUVELLE DEMANDE DE CONTACT - LaserMachineMar
-      
-═══════════════════════════════════════
-📋 INFORMATIONS PERSONNELLES
-═══════════════════════════════════════
-👤 Nom complet : ${prenom} ${nom}
-📧 Email : ${email}
-📞 Téléphone : ${telephone || 'Non renseigné'}
-
-═══════════════════════════════════════
-🏢 INFORMATIONS ENTREPRISE
-═══════════════════════════════════════
-🏭 Entreprise : ${entreprise}
-💼 Fonction : ${fonction || 'Non renseignée'}
-🎯 Secteur : ${secteur || 'Non renseigné'}
-
-═══════════════════════════════════════
-📝 DÉTAILS DE LA DEMANDE
-═══════════════════════════════════════
-🔥 Type de demande : ${type_demande}
-💰 Budget envisagé : ${budget || 'Non renseigné'}
-
-📋 Description du projet :
-${message}
-
-═══════════════════════════════════════
-📅 INFORMATIONS SYSTÈME
-═══════════════════════════════════════
-📅 Date : ${dateStr}
-⏰ Heure : ${timeStr}
-🌐 Source : Site Web LaserMachineMar
-
-═══════════════════════════════════════
-
-⚡ ACTIONS À PRENDRE :
-1. Répondre dans les 24h
-2. Qualifier le besoin 
-3. Proposer un rendez-vous si pertinent
-4. Préparer une proposition commerciale
-
----
-Email généré automatiquement depuis le site LaserMachineMar`;
-      
-      // Création du lien mailto
-      const mailtoLink = `mailto:imadalhannawi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // Ouverture du client email
-      window.location.href = mailtoLink;
-      
-      // Message de confirmation
-      setTimeout(() => {
-        alert('✅ Votre client email va s\'ouvrir avec toutes les informations pré-remplies. Envoyez simplement l\'email !');
-      }, 500);
+      // Ouverture
+      window.open(lien);
     }
   </script>
 </body>
