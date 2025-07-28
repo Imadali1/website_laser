@@ -3,30 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - LaserMachineMar</title>
+  <title>Contact - Machine Laser Maroc</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     #confirmation-message {
       display: none;
       margin-top: 30px;
-      color: green;
+      color: #27ae60;
       font-weight: bold;
       font-size: 18px;
       text-align: center;
+      padding: 15px;
+      background: #d5f4e6;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Machine Laser Maroc</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Nos Machines</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <section class="about">
+  <!-- Section Hero Contact -->
+  <section class="hero">
     <div class="container">
       <h2>Contactez-nous</h2>
-      <p>Notre équipe est à votre disposition pour étudier vos projets.</p>
+      <p>Notre équipe est à votre disposition pour étudier vos projets et vous proposer les meilleures solutions laser</p>
+    </div>
+  </section>
+
+  <!-- Section Contact Info -->
+  <section class="contact-info-section">
+    <div class="container">
+      <h2>Nos Coordonnées</h2>
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <h4>Adresse</h4>
+          <p>134 Angle Route Ouled Ziane et Rue Aswane Immeuble B étage N° 3, Casablanca 20250</p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-card-icon">📧</div>
+          <h4>Email</h4>
+          <p>Contact@machinelaser.ma</p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <h4>Téléphone</h4>
+          <p>+212 660 339 034</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Formulaire -->
+  <section class="contact-form-section">
+    <div class="container">
+      <h2>Demande d'information</h2>
+      <p>Complétez ce formulaire pour recevoir une réponse personnalisée et un devis adapté à vos besoins.</p>
 
       <form class="contact-form" id="webForm">
-        <h3>Demande d'information</h3>
-        <p class="form-subtitle">Complétez ce formulaire pour recevoir une réponse personnalisée.</p>
-
         <div class="form-row">
           <div class="form-group">
             <label for="prenom">Prénom *</label>
@@ -107,7 +156,7 @@
           </select>
         </div>
 
-        <button type="submit" class="btn contact-btn">Envoyer la demande</button>
+        <button type="submit" class="btn btn-primary contact-btn">Envoyer la demande</button>
 
         <div id="confirmation-message">
           ✅ Merci pour votre message, nous vous répondrons rapidement !
@@ -118,7 +167,37 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 LaserMachineMar. Tous droits réservés.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Machine Laser Maroc</h3>
+          <p>Nous sommes spécialisés dans la vente et l'installation de machines laser de haute précision, adaptées aux besoins des industries métallurgiques, artisanales et manufacturières.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li>134 Angle Route Ouled Ziane et Rue Aswane Immeuble B étage N° 3, Casablanca 20250</li>
+            <li>Contact@machinelaser.ma</li>
+            <li>+212 660 339 034</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Nos Produits</h4>
+          <ul>
+            <li>Machine Soudeuse Laser</li>
+            <li>Machine CNC</li>
+            <li>Machine Découpeuse Laser</li>
+            <li>Machine Fibre Optique</li>
+            <li>Machine CO2</li>
+            <li>Machine Plotter</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 By Machine Laser Maroc</p>
+      </div>
     </div>
   </footer>
 
@@ -132,5 +211,6 @@
       form.reset(); // vide le formulaire
     });
   </script>
-</body>
+ </body>
+ </head>
 </html>
